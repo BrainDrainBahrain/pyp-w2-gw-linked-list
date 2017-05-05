@@ -4,13 +4,20 @@ class Node(object):
     """
 
     def __init__(self, elem, next=None):
-        pass
+        self.elem = elem
+        self.next = next
 
+    #string representation
     def __str__(self):
-        pass
+        if self.next is None:
+            return "Node({}) > /".format(self.elem)
+        else:
+            return "Node({0}) > Node({1})".format(self.elem, self.next.elem)
+    
+    #for equality operator
+    def __eq__(self, other):   
+        return self.elem == other
 
-    def __eq__(self, other):
-        pass
-
-    def __repr__(self):
-        pass
+    # (string) is intended to produce output that is mostly machine-readable
+    def __repr__(self):   
+        return str(self.elem)   #is this right?
